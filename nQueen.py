@@ -109,6 +109,7 @@ class Board:
             row = self.queens[i].row
             col = self.queens[i].col
             conflicts = self.conflicts(row, col)
+            self.total_conflicts=conflicts
             if conflicts > 0:
                 return
         return
@@ -228,7 +229,7 @@ class Board:
 def main():
     start_time = time.time()
     # Change variable 'n' below for different board and queen sizes.
-    n = 8
+    n = 3
     board = Board(n)
     # board.print_board()
     board.solver()

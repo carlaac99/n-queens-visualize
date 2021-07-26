@@ -125,7 +125,12 @@
 
     </tr>
     </table>
-    <button type="button" >solve</button>
+    <button class = "button" type="button" >solve</button>
+    <div class="slidecontainer">
+        <input type="range" min="4" max="100" value="14" class="slider" id="myRange">
+        <p>N = <span id="value"></span></p>
+      </div>
+    <h1> N-Queens Visualizer</h1>
 </body>
 
     
@@ -135,5 +140,22 @@
     $(document).ready(function(){
   $("board span:nth-child(odd)").css("");
 });
+var slider = document.getElementById("myRange");
+var output = document.getElementById("value");
+output.innerHTML = slider.value; 
+
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
+
+slider.addEventListener("mousemove", function(){
+    var x = slider.value;
+    var color = "linear-gradient(90deg, rgb(117,252,117)" + x + "%, rgb(214,214,214)" + x + "%)";
+    slider.style.background = color;
+
+})
+
+
 </script>
 </html>
